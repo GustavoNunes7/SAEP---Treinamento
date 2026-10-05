@@ -3,59 +3,77 @@
 
 <head>
     <meta charset="UTF-8" />
+
+    <!-- Faz a página se adaptar a diferentes tamanhos de tela. -->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+
     <title>Almoxarifado</title>
+
+    <!-- Importa o arquivo de estilos da página. -->
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
     <main>
 
-
-<!-- ================================================ Tela de Login ================================================   -->
-
+        <!-- Tela de login: permite identificar o usuário antes de acessar o sistema. -->
         <section id="login">
             <div class="titulo">
-            <h1>Almoxarifado 📦</h1>
+                <h1>Almoxarifado 📦</h1>
             </div>
-           
+
+            <!-- Formulário usado para enviar e-mail e senha ao JavaScript. -->
             <form id="formLogin">
                 <span>E-mail:</span>
                 <input id="email" type="email" placeholder="admin@teste.com" required />
-                
+
                 <span>Senha:</span>
-                <input id="senha" type="password"
-                    placeholder="Senha" required />
-                    <button>Entrar</button>
+                <input id="senha" type="password" placeholder="Senha" required />
+
+                <button>Entrar</button>
             </form>
+
+            <!-- Local onde o JavaScript mostra mensagens de erro. -->
             <p id="mensagem"></p>
+
+            <!-- Credenciais usadas somente para testar o sistema. -->
             <small><strong>Teste:</strong> admin@teste.com / 123456</small>
         </section>
 
-<!-- ================================================ Tela Inicial ================================================   -->
-
-
+        <!-- Tela principal: fica escondida até o login ser realizado. -->
         <section id="sistema" hidden>
             <header>
                 <h1>Sistema de Almoxarifado</h1>
-                <span id="usuario"></span><button id="sair">Sair</button>
+                <span id="usuario"></span>
+                <button id="sair">Sair</button>
             </header>
+
+            <!-- Menu que troca entre as telas do sistema. -->
             <nav>
-                <button data-tela="produtos">Produtos</button><button data-tela="estoque">Estoque</button><button
-                    data-tela="historico">Histórico</button>
-            </nav><hr>
+                <button data-tela="produtos">Produtos</button>
+                <button data-tela="estoque">Estoque</button>
+                <button data-tela="historico">Histórico</button>
+            </nav>
 
-    <!-- ================================================ Seção de Produtos ================================================   -->
+            <hr>
 
+            <!-- Tela de cadastro e consulta de produtos. -->
             <section id="produtos" class="tela">
                 <h2>Produtos</h2>
+
+                <!-- Formulário para cadastrar produtos. -->
                 <form id="formProduto">
-                    <input id="nome" placeholder="Nome" required /><input id="categoria" placeholder="Categoria"
-                        required /><input id="quantidade" type="number" min="0" placeholder="Quantidade"
-                        required /><input id="minimo" type="number" min="0" placeholder="Mínimo"
-                        required /><button>Salvar</button><br>
+                    <input id="nome" placeholder="Nome" required />
+                    <input id="categoria" placeholder="Categoria" required />
+                    <input id="quantidade" type="number" min="0" placeholder="Quantidade" required />
+                    <input id="minimo" type="number" min="0" placeholder="Mínimo" required />
+                    <button>Salvar</button><br>
                 </form>
+
+                <!-- Campo usado para pesquisar produtos. -->
                 <input id="busca" placeholder="Pesquisar 🔎" />
+
+                <!-- Tabela preenchida pelo JavaScript. -->
                 <table>
                     <thead>
                         <tr>
@@ -70,23 +88,28 @@
                 </table>
             </section>
 
-    <!-- ================================================ Seção de Movimentação ================================================   -->
-
+            <!-- Tela para registrar entradas e saídas do estoque. -->
             <section id="estoque" class="tela" hidden>
                 <h2>Movimentação</h2>
+
                 <form id="formMov">
-                    <select id="produto" required></select><select id="tipo">
+                    <select id="produto" required></select>
+                    <select id="tipo">
                         <option value="entrada">Entrada</option>
                         <option value="saida">Saída</option>
-                    </select><input id="qtdMov" type="number" min="1" required
-                        placeholder="Quantidade" /><button>Registrar</button>
+                    </select>
+                    <input id="qtdMov" type="number" min="1" required placeholder="Quantidade" />
+                    <button>Registrar</button>
                 </form>
+
+                <!-- Local onde aparece o resultado da movimentação. -->
                 <p id="alerta"></p>
             </section>
 
-    <!-- ================================================ Seção de Histórico ================================================   -->
+            <!-- Tela que mostra o histórico das movimentações. -->
             <section id="historico" class="tela" hidden>
                 <h2>Histórico</h2>
+
                 <table>
                     <thead>
                         <tr>
@@ -97,12 +120,17 @@
                             <th>Data</th>
                         </tr>
                     </thead>
+
+                    <!-- O JavaScript coloca o histórico aqui. -->
                     <tbody id="listaHistorico"></tbody>
                 </table>
             </section>
-             <p style="text-align: center;">Feito por Carina Cristina & Gustavo Nunes</p>
+
+            <p style="text-align: center;">Feito por Carina Cristina & Gustavo Nunes</p>
         </section>
     </main>
+
+    <!-- Carrega o JavaScript responsável pelo funcionamento da página. -->
     <script src="script.js"></script>
 </body>
 
